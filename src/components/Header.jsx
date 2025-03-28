@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {  FaFacebookF,  FaInstagram, FaMoon, FaTiktok } from "react-icons/fa";
+import {  
+  // FaFacebookF,  FaInstagram, FaTiktok ,
+  FaMoon, 
+} from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdClose, MdLightMode} from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -155,7 +158,7 @@ const Header = () => {
           > 
             <IoIosArrowBack className="mr-2" /> Back
           </button>
-          <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/#review">Reviews</NavLink></li>
+          <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/#reviews">Reviews</NavLink></li>
           </ul></li>
           <li
            onMouseEnter={(e) => handleMouseEvents(e, setourTeam)}
@@ -211,11 +214,11 @@ const Header = () => {
           }
           to="/newsroom">Newsroom</NavLink></li>
         </ul>
-        <ul className="flex items-center px-8 space-x-3 other:px-0 other:py-8 dark:text-white">
+        {/* <ul className="flex items-center px-8 space-x-3 other:px-0 other:py-8 dark:text-white">
           <li><Link onClick={()=>setSideBar(false)} to=""><FaTiktok /></Link></li>
           <li><Link onClick={()=>setSideBar(false)} to=""><FaInstagram /></Link></li>
           <li><Link onClick={()=>setSideBar(false)} to=""><FaFacebookF/></Link></li>
-        </ul>
+        </ul> */}
       </nav>
     </header>
   );

@@ -95,7 +95,7 @@ export const Home = () => {
             </p>
           </div>
           <div>
-            <div className="flex justify-between items-center px-6 py-8 w-full rounded-md other:flex-col other:space-y-3 dark:bg-neutral-800 other:justify-center bg-neutral-200">
+            <div id="reviews" className="flex justify-between items-center px-6 py-8 w-full rounded-md other:flex-col other:space-y-3 dark:bg-neutral-800 other:justify-center bg-neutral-200">
               <div className="flex flex-col justify-center">
                 <div className="flex items-center">
                   <img className="-ml-1 w-20" src={glogo} alt="" />{" "}

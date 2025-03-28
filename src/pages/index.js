@@ -16,7 +16,7 @@ export {Contact} from './Contact';
 export {Home} from './Home'
 export {PageNotFound} from './PageNotFound'
 
-export const TopCover = ({h1, p,bg}) => {
+export const TopCover = ({h1,title, p,bg}) => {
   return (
     <div
         className={`w-full bg-center bg-scroll bg-cover pl-[10%] lg:pl-[10%] other:pl-0 p-6 bg-blend-multiply bg-neutral-300 bg-${bg}`}
@@ -32,6 +32,8 @@ export const TopCover = ({h1, p,bg}) => {
             className="pt-0"
               b2="text-white border-white"
               b1="text-black bg-orange-300 "
+              h1={h1}
+              title={title}
             />
             <p className=" font-serif pb-5 text-[1.4rem] text-white font-semibol">
            {p}</p>

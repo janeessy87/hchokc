@@ -1,5 +1,5 @@
 import React from "react";
-import {  FaFacebookF,  FaInstagram, FaTiktok } from "react-icons/fa";
+// import {  FaFacebookF,  FaInstagram, FaTiktok } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import logoo from "../assets/logoo.png";
@@ -10,11 +10,11 @@ const Footer = () => {
     <footer className="text-black bg-white dark:bg-black dark:text-white">
       <div className="flex justify-between other:flex-col">
         <div className="flex flex-col justify-between px-10 w-[30%] other:justify-center other:items-center other:w-full">
-        {/* <HCHL className="py-24 w-40 text-white other:pt-8 other:py-4 other:w-80" /> */}
-        {/* <div className="py-24 w-40 h-10 text-white bg-contain bg-logoo dark:bg-logodark other:pt-8 other:py-4 other:w-80" ></div> */}
+
           <img src={logoo} className="py-24 w-40 text-white dark:invert other:pt-8 other:py-4 other:w-80"  alt="" />
           <br />
-          <button className="px-10 py-2 text-white bg-black rounded-md max-w-[26rem] w-4/5 tab:px-3 dark:text-black other:w-full other:p-3 my-16 other:text-2xl dark:bg-white">405-232-1515</button>
+          {/* <button className="px-10 py-2 text-white bg-black rounded-md max-w-[26rem] w-4/5 tab:px-3 dark:text-black other:w-full other:p-3 my-16 other:text-2xl dark:bg-white">405-232-1515</button> */}
+          <Link to='/contact#contact' className="px-10 py-2 text-white bg-black rounded-md max-w-[26rem] w-4/5 tab:px-3 dark:text-black other:w-full other:p-3 my-16 other:text-2xl dark:bg-white">Contact Us</Link>
         </div>
         <div className="flex justify-between p-6 space-x-6 w-[30%] other:space-x-10 other:w-full">
           <div className="w-1/2 ">
@@ -32,11 +32,11 @@ const Footer = () => {
 
             <p className="font-thin text-wrap">Phones are answered 24/7</p>
 
-            <ul className="flex items-center pr-8 space-x-6 mt-8 other:py-8 dark:text-white">
+            {/* <ul className="flex items-center pr-8 space-x-6 mt-8 other:py-8 dark:text-white">
           <li><Link to=""><FaTiktok /></Link></li>
           <li><Link to=""><FaInstagram /></Link></li>
           <li><Link to=""><FaFacebookF/></Link></li>
-        </ul>
+        </ul> */}
             
             </div>
         </div>

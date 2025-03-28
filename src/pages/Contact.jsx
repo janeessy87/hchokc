@@ -6,7 +6,8 @@ import meetLegal from "../assets/Images/meetLegal.jpg"
 import { useTitle } from '../hooks/useTitle'
 
 export const Contact = () => {
-  useTitle("Contact")
+  const title= "Contact"
+  useTitle(title)
 
   
 
@@ -35,8 +36,9 @@ export const Contact = () => {
   };
 
   return (
-    <div>
+    <div id='contact'>
       <TopCover 
+      title={title}
       bg="dui"
       p="Free Initial Consultation | Available 7 Days a Week"
       h1="Contact us"
@@ -55,7 +57,7 @@ export const Contact = () => {
               <a className='underline font-extralight' href="https://maps.app.goo.gl/jZRaP2mGzPA9E3258">
               428 Dean A McGee Ave, Oklahoma City, OK 73102</a>
               <h2 className='font-serif text-xl'>Hours of Operation:</h2>
-              <a className='underline font-extralight' href="tel:4052321515">4052321515</a>
+              {/* <a className='underline font-extralight' href="tel:4052321515">4052321515</a> */}
               <h2 className='font-serif text-xl'>Hours of Operation:</h2>
               <p className='font-extralight'>Monday to Friday: 8:00 am - 7:00 pm <br />
                 Saturday and Sunday: Phones will be answered <br />

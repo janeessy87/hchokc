@@ -11,7 +11,7 @@ export { AndCase } from "./AndCase";
 
 export { OurTeam } from "./OurTeam";
 
-export const TeamTop =({h1}) =>{
+export const TeamTop =({h1, title}) =>{
     return(
         <div
         className={`w-full bg-center bg-scroll bg-no-repeat pl-[10%] lg:pl-[10%] other:pl-0 py-10 bg-blend-multiply bg-cover bg-neutral-300 bg-ourTeam`}
@@ -26,6 +26,7 @@ export const TeamTop =({h1}) =>{
             className="pt-0 -mt-5"
               b2="text-white border-white"
               b1="text-black bg-orange-300 "
+              title={title}
             />    
           </div>
         </div>
