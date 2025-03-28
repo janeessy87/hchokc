@@ -2,7 +2,7 @@
 const postmark = require("postmark");
 
 exports.handler = async (event) => {
-  const { name, email, message,firstName,lastName,phone, intrests, other } = JSON.parse(event.body);
+  const { name, email, message,firstName,lastName,phone, intrests, other, lawyerName } = JSON.parse(event.body);
 
   const client = new postmark.ServerClient(process.env.NETLIFY_EMAILS_PROVIDER_API_KEY);
 
@@ -11,7 +11,10 @@ exports.handler = async (event) => {
       From: "admin@hchoklahoma.com",
       To: "dssolloway@writeme.com",
       Subject: `New Message from ${name}`,
-      TextBody: `From: ${email}\n\n${message}\n\nFirst Name ${firstName} 
+      TextBody: `
+      choosen lawyer: ${lawyerName}
+      From: ${
+      email}\n\n${message}\n\nFirst Name ${firstName} 
       \n\n Last Name:${lastName}  
       \n\n Phone Number: ${phone}
       \n\n  My interests : ${intrests}

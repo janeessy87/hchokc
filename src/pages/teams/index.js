@@ -60,6 +60,7 @@ export const TeamComp = ({title,span,faqs,imge,h2,span2, className}) => {
                 </div>
             </div>
             <ConCompo
+            title={title}
             h1={`Get in Touch with ${title}`}
             />
             <RTS />
