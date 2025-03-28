@@ -13,22 +13,27 @@ export const seth = sethen
 export const teamsLawyer = [
     {
         img:sethen ,
-        lawyer: "E. Seth Hendrick "
+        lawyer: "E. Seth Hendrick ",
+        link: "e-seth-hendrick"
     },
     {
         img: andCas ,
-        lawyer: "Andrew M. Casey "
+        lawyer: "Andrew M. Casey ",
+        link: "andrew-m-casey"
     },
     {
         img: andHut,
-        lawyer: "Andrew Edward Hutter"
+        lawyer: "Andrew Edward Hutter",
+        link: "andrew-edward-hutter"
     },
     {
         img: ryanLo,
-        lawyer: "Ryan Loewenstern "
+        lawyer: "Ryan Loewenstern ",
+        link: "ryan-loewenstern"
     },
     {
         img: erica,
-        lawyer: "Erika Diaz "
+        lawyer: "Erika Diaz ",
+        link: "erika-diaz"
     },
 ]

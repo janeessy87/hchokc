@@ -18,8 +18,8 @@ Upon law school graduation, Andrew worked as an associate for Carpenter and Laqu
   useTitle()
   const ans1 = (
     <div className='flex flex-col p-0 space-y-3'>
-      <div className='flex'><b className='mr-2'>Phone:</b><p className='font-extralight dark:font-semibold'>405-232-1515</p></div>
-      <div className='flex'><b className='mr-2'>Email:</b><p className='font-extralight dark:font-semibold'>Hutter@hchokc.com</p></div>
+      {/* <div className='flex'><b className='mr-2'>Phone:</b><p className='font-extralight dark:font-semibold'>405-232-1515</p></div> */}
+      <div className='flex'><b className='mr-2'>Email:</b><p className='font-extralight dark:font-semibold'>and.ed@hchoklahoma.com</p></div>
     </div>
   )
   const faqs = [
