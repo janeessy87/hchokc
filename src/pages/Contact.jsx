@@ -36,7 +36,7 @@ export const Contact = () => {
   };
 
   return (
-    <div id='contact'>
+    <div >
       <TopCover 
       title={title}
       bg="dui"
@@ -66,7 +66,7 @@ export const Contact = () => {
               <p className='font-extralight'>Free parking available in our lot</p>
           </div>
         </div>
-      <div className=' flex-col other:w-full w-1/2 items-center'>
+      <div id='contact' className=' flex-col other:w-full w-1/2 items-center'>
                     <form className='flex rounded-md  flex-col p-5 py-10  text-black dark:bg-black bg-white border-[1px] dark:border-white border-black items-center dark:text-white' onSubmit={handleSubmit}>
                         <div className='w-full'>
                         <label className='py-3 self-baseline'>Name*</label>
