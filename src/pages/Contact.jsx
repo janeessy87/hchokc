@@ -7,6 +7,33 @@ import { useTitle } from '../hooks/useTitle'
 
 export const Contact = () => {
   useTitle("Contact")
+
+  
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+
+    const formData = new FormData(event.target);
+    const info = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      name: `${formData.get('firstName')} ${formData.get('lastName')}`,
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      message: formData.get('message'),
+      intrests: formData.get('intrests'),
+      other: formData.get('other'),
+    };
+    const res = await fetch("/.netlify/functions/sendMail", {
+      method: "POST",
+      body: JSON.stringify(info),
+    });
+  
+    const data = await res.json();
+    console.log(data);
+    
+  };
+
   return (
     <div>
       <TopCover 
@@ -17,7 +44,7 @@ export const Contact = () => {
     <div className=' flex  bg-white justify-center '>
       <div className='flex other:flex-col max-w-screen-2xl w-full  justify-center space-x-20 tab:p-4 tab:space-x-5 p-10 other:space-x-0 bg-white text-black dark:bg-black dark:text-white'>
         <div className='space-y-6 other:w-full  w-1/2'>
-          <h1 className='font-serif text-2xl'>We’re here to help with your legal needs.
+          <h1 className='font-serif text-2xl'>We're here to help with your legal needs.
           </h1>
 
           <p className='text-lg font-extralight'>Fill out our contact form or give us a call to schedule a free consultation.</p>
@@ -38,19 +65,19 @@ export const Contact = () => {
           </div>
         </div>
       <div className=' flex-col other:w-full w-1/2 items-center'>
-                    <form className='flex rounded-md  flex-col p-5 py-10  text-black dark:bg-black bg-white border-[1px] dark:border-white border-black items-center dark:text-white' action="">
+                    <form className='flex rounded-md  flex-col p-5 py-10  text-black dark:bg-black bg-white border-[1px] dark:border-white border-black items-center dark:text-white' onSubmit={handleSubmit}>
                         <div className='w-full'>
                         <label className='py-3 self-baseline'>Name*</label>
 
                         <div className='flex items-center my-4 space-x-2'>       
 
                           <label className='flex  w-1/2 flex-col ' htmlFor="firstName">
-                              <input className='p-2 rounded-sm text-black bg-transparent border-black border-[1px] dark:border-white dark:text-white' type="text" id='firstName' />
+                              <input className='p-2 rounded-sm text-black bg-transparent border-black border-[1px] dark:border-white dark:text-white' type="text" id='firstName' name='firstName' />
                                 First Name
                           </label>
                         
-                          <label className='flex  w-1/2 flex-col' htmlFor="firstName">
-                          <input className='p-2 rounded-sm  text-black bg-transparent border-[1px] border-black dark:border-white dark:text-white' type="text" id='firstName' />
+                          <label className='flex  w-1/2 flex-col' htmlFor="lastName">
+                          <input className='p-2 rounded-sm  text-black bg-transparent border-[1px] border-black dark:border-white dark:text-white' type="text" id='lastName' name='lastName' />
                             Last Name
                           </label>
 
@@ -59,23 +86,23 @@ export const Contact = () => {
                         </div>
 
                         <label className='flex flex-col w-full' htmlFor="email">Email*
-                            <input className='p-2 my-4 text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="email" id='email' />
+                            <input className='p-2 my-4 text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="email" id='email' name='email' />
                             </label>
                         
                         <label className='flex flex-col w-full' htmlFor="phone">Phone*
-                            <input className='p-2 my-4  text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="tel" name="Phone" id="phone" />
+                            <input className='p-2 my-4  text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="tel" name="phone" id="phone" />
                         </label>
                         
                         <label className='flex flex-col w-full' htmlFor="message">Message*
-                            <textarea cols="30" rows="7" className='p-2 my-4 text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="textarea" id='message' />
+                            <textarea cols="30" rows="7" className='p-2 my-4 text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="textarea" id='message' name='message' />
                         </label>
 
                         <label className='flex flex-col w-full' htmlFor="intrests">What services are you interested in?
-                            <input className='p-2 my-4 text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="text" id='intrests' />
+                            <input className='p-2 my-4 text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="text" id='intrests' name='intrests' />
                             </label>
                             
                         <label className='flex flex-col w-full' htmlFor="other">Other: case information
-                            <input className='p-2 my-4 text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="text" id='other' />
+                            <input className='p-2 my-4 text-black bg-transparent border-[1px] rounded-sm border-black dark:border-white dark:text-white' type="text" id='other' name='other' />
                             </label>
 
                         <input className='items-center px-6 py-2 my-10 text-2xl font-semibold text-white bg-orange-300 rounded hover:bg-orange-500 max-w-48' type="submit" value="Submit Form" />
