@@ -343,7 +343,7 @@ C. IF YOU DO NOT AGREE WITH ANY PART OF THIS PRIVACY POLICY OR OUR TERMS OF SERV
             <ul className='list-inside list-[upper-roman] space-y-3 py-3'>
                 {
                     privacyList && privacyList.map((list, index)=>
-                        <li className='space-y-1 font-bold text-2xl'> <b className='font-bold text-2xl'>{list.l}</b>
+                        <li key={index} className='space-y-1 font-bold text-2xl'> <b className='font-bold text-2xl'>{list.l}</b>
                     <p className='font-normal text-base'>{list.p }</p>
                 </li>
                     )
@@ -353,7 +353,7 @@ C. IF YOU DO NOT AGREE WITH ANY PART OF THIS PRIVACY POLICY OR OUR TERMS OF SERV
             <ul className='list-inside list-[upper-roman] space-y-3 py-3'>
                 {
                     webPrivacy && webPrivacy.map((list, index)=>
-                        <li className='space-y-1 font-bold text-2xl'> <b className='font-bold text-2xl'>{list.l}</b>
+                        <li key={index} className='space-y-1 font-bold text-2xl'> <b className='font-bold text-2xl'>{list.l}</b>
                     <p className='font-normal text-base'>{list.p }</p>
                 </li>
                     )
