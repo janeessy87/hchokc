@@ -40,7 +40,7 @@ export const TeamComp = ({title,span,faqs,imge,h2,span2, className}) => {
     <div>
       <TeamTop h1={title}/>
 
-      <div className="flex justify-center items-center p-2 bg-white dark:bg-black other:">
+      <div data-testid="team-comp-container" className="flex justify-center items-center p-2 bg-white dark:bg-black other:">
                 <div className="grid grid-cols-5 gap-14 other:gap-8 py-10 max-w-screen-lg text-black other:grid-cols-1  dark:text-white">
                     <div className="flex-col col-span-2  other:w-full items-center m-4 other:flex">
                     <img src={imge} className="flex object-cover max-h-[400px]" alt="" />

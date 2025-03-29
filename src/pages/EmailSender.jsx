@@ -1,62 +1,45 @@
 import React from 'react'
 
 export const EmailSender = () => {
-    const bodyy = `<p>Your name has been changed successfully from Jim Means to James Means on the beneficiary profile.
-I want to address any concerns regarding the document I provided. To be clear, I personally prepared the ownership and inheritance document, ensuring it accurately reflects the total value of the estate after liquidation. This document, which I signed digitally, is the one that holds legal significance. </p>
 
-<p>While the original will remains available, it is not required at this stage as both Sarah and I already have copies. The document sent to her is what matters. It establishes the finalized asset valuation and serves as the official record for the inheritance process.</p>
-
-<p>If there are any further questions, I expect them to be directed to me for clarification</p>
-
-<p>Yours Sincerely,</p> 
-<p><em>Signature here <em/></p>
-<p>Attorney General </p>
-
-`
   
   const handleSubmit = async(e)=> {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const testlist = {
-      from: `${formData.get('fromName')} <${formData.get('fromEmail')}>`,
-          to: formData.get('toEmail'),
-          subject: formData.get('subject'),
-          parameters: {
-            Client_name: formData.get('client_name'), 
-            client_address: formData.get('client_address'), 
-            state_city_zip: formData.get('state_city_zip'), 
-            date: formData.get('date'), 
-            letterheading: formData.get('letterheading'), 
-            letter_body: `${formData.get('message')}`,
-          }
+
+    try {
+      const res = await fetch("/.netlify/functions/sendNotification",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            from: `${formData.get('fromName')} <${formData.get('fromEmail')}>`,
+            to: formData.get('toEmail'),
+            subject: formData.get('subject'),
+            parameters: {
+              Client_name: formData.get('client_name'), 
+              client_address: formData.get('client_address'), 
+              state_city_zip: formData.get('state_city_zip'), 
+              date: formData.get('date'), 
+              letterheading: formData.get('letterheading'), 
+              letter_body: `${formData.get('message')}`
+            },
+          }),
         }
+      );
 
-    
-    
-    console.log(testlist
-    )
-
-    const res = await fetch("/.netlify/functions/sendNotification",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          from: `${formData.get('fromName')} <${formData.get('fromEmail')}>`,
-          to: formData.get('toEmail'),
-          subject: formData.get('subject'),
-          parameters: {
-            Client_name: formData.get('client_name'), 
-            client_address: formData.get('client_address'), 
-            state_city_zip: formData.get('state_city_zip'), 
-            date: formData.get('date'), 
-            letterheading: formData.get('letterheading'), 
-            letter_body: `${formData.get('message')}`
-          },
-        }),
+      if (!res.ok) {
+        throw new Error('Failed to send email');
       }
-    );
-    const data = await res.json();
-    console.log(data);
-}
+
+      const data = await res.json();
+      console.log(data);
+      // You might want to show a success message to the user here
+    } catch (error) {
+      console.error('Error sending email:', error);
+      // You might want to show an error message to the user here
+    }
+  }
+
   return <div>
    
       <form className="flex rounded-md  flex-col p-5 py-10  text-black dark:bg-black bg-white border-[1px] dark:border-white border-black items-center dark:text-white" onSubmit={handleSubmit}>

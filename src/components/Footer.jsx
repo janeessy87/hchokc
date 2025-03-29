@@ -8,8 +8,8 @@ const Footer = () => {
 
   return (
     <footer className="text-black bg-white dark:bg-black dark:text-white">
-      <div className="flex justify-between other:flex-col">
-        <div className="flex flex-col justify-between px-10 w-[30%] other:justify-center other:items-center other:w-full">
+      <div data-testid="footer-container" className="flex justify-between other:flex-col">
+        <div data-testid="logo-container" className="flex flex-col justify-between px-10 w-[30%] other:justify-center other:items-center other:w-full">
 
           <img src={logoo} className="py-24 w-40 text-white dark:invert other:pt-8 other:py-4 other:w-80"  alt="" />
           <br />
@@ -43,7 +43,7 @@ const Footer = () => {
       </div>
       <div className="flex flex-col mt-16 items-center">
         <p className="font-extralight text-sm dark:text-neutral-50 text-center w-1/4 text-neutral-500 space-x-2">Powered by <span className="underline">High Five Media</span><span>|</span><span className="underline">Privacy Policy</span></p>
-      <p className="pb-10 pt-3 px-24 text-sm font-light text-center">© {new Date().getFullYear()} he contents of this website are owned or licensed by High Five Media Group LLC. It is unlawful to copy this website or any of its content without High Five Media’s consent.</p>
+      <p className="pb-10 pt-3 px-24 text-sm font-light text-center">© {new Date().getFullYear()} he contents of this website are owned or licensed by High Five Media Group LLC. It is unlawful to copy this website or any of its content without High Five Media's consent.</p>
     </div>
     
     </footer>
