@@ -35,6 +35,8 @@ export const Contact = () => {
     
   };
 
+  
+
   return (
     <div >
       <TopCover 
@@ -43,6 +45,7 @@ export const Contact = () => {
       p="Free Initial Consultation | Available 7 Days a Week"
       h1="Contact us"
       />
+
     <div className=' flex  bg-white justify-center '>
       <div className='flex other:flex-col max-w-screen-2xl w-full  justify-center space-x-20 tab:p-4 tab:space-x-5 p-10 other:space-x-0 bg-white text-black dark:bg-black dark:text-white'>
         <div className='space-y-6 other:w-full  w-1/2'>

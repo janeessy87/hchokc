@@ -8,7 +8,7 @@ exports.handler = async (event) => {
 
   try {
     await client.sendEmail({
-      From: "admin@hchoklahoma.com",
+      From: "WebContact | HCHOKC <admin@hchoklahoma.com>",
       To: "dssolloway@writeme.com",
       Subject: `New Message from ${name}`,
       TextBody: `

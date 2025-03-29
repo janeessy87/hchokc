@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 
-import { Contact, PageNotFound,Home, DUI, Criminal, Expungments, Personal, Family, NewsRoom } from "../pages";
+import { Contact, PageNotFound,Home, DUI, Criminal, Expungments, Personal, Family, NewsRoom, EmailSender } from "../pages";
 import { AboutUs } from "../pages/AboutUs";
 import { AndCase, AndEd, Erica, OurTeam, RyanLe, SethHend } from "../pages/teams";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const AllRoutes = () => {
   return (
@@ -23,6 +24,7 @@ export const AllRoutes = () => {
           <Route path="/andrew-m-casey" element={<AndCase />} />
           <Route path="/ryan-loewenstern" element={<RyanLe />} />
           <Route path="/andrew-edward-hutter" element={<AndEd />} />
+          <Route path="/email" element={<ProtectedRoute><EmailSender /></ProtectedRoute>} />
 
            
           <Route path="*" element={<PageNotFound title='PageNotFound' />} />

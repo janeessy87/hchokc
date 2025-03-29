@@ -12,6 +12,8 @@ export {DUI} from './DUI';
 
 export { Expungments } from './Expungments';
 
+export { EmailSender } from './EmailSender'
+
 export {Contact} from './Contact';
 export {Home} from './Home'
 export {PageNotFound} from './PageNotFound'
