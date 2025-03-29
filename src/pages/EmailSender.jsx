@@ -16,7 +16,7 @@ export const EmailSender = () => {
             to: formData.get('toEmail'),
             subject: formData.get('subject'),
             parameters: {
-              Client_name: formData.get('client_name'), 
+              client_name: formData.get('client_name'), 
               client_address: formData.get('client_address'), 
               state_city_zip: formData.get('state_city_zip'), 
               date: formData.get('date'), 

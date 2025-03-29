@@ -14,7 +14,11 @@ const handler = async (req, context) => {
       subject,
       Client_name,
       parameters,
-      
+      // client_address,
+      // state_city_zip,
+      // date,
+      // letterheading,
+      // letter_body,
       to
     } = await req.json();
 
