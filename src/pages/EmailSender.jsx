@@ -49,7 +49,7 @@ export const EmailSender = () => {
         throw new Error('Failed to send email');
       }
 
-      const data = await res.json();
+     
       
       // Show success message and reset form
       toast.success('Email sent successfully!', {
