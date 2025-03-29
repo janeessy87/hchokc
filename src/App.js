@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -23,13 +24,14 @@ function App() {
 
   return (
     <div>
-       {/* <ScrollToTop /> */}
-    <Header />
-   
+      <Toaster position="top-center" />
+      {/* <ScrollToTop /> */}
+      <Header />
+     
         <AllRoutes />
-    <Footer />
+      <Footer />
       
-      </div>
+    </div>
   );
 }
 

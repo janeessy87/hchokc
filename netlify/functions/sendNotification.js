@@ -8,7 +8,6 @@ const postmark = require("postmark");
       subject,
       client_name,
       parameters,
-      // letter_body,
       to
     } = JSON.parse(event.body);
     const HtmlBody = `<body style="font-family: 'Open Sans', 'Helvetica Neue', sans-serif; margin: 0; padding: 1rem; background-color: #ffffff; color: #000000;">
