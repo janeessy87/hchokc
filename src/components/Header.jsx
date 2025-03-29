@@ -18,9 +18,9 @@ const Header = () => {
   const [actPrac, setactPrac] = useState(false)
   const [actAbout, setActAbout] = useState(false)
   const [aboutBar, setAboutBar] = useState(false)
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [ourTeam, setourTeam] = useState(false);
   const [actTeam, setactTeam] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
@@ -36,25 +36,60 @@ const Header = () => {
   }, [darkMode]);
 
   useEffect(() => {
-    if (sideBar) {
-      document.body.classList.add("overflow-hidden"); // Prevent scrolling
-    } else {
-      document.body.classList.remove("overflow-hidden"); // Enable scrolling
-    }
-  }, [sideBar]);
-
-  useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+      const newWidth = window.innerWidth;
+      setIsMobile(newWidth <= 768);
+      
+      if (newWidth > 768) {
+        setSideBar(false);
+        setPracBar(false);
+        setAboutBar(false);
+        setourTeam(false);
+        document.body.style.overflow = 'auto';
+      }
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Function to handle mouse events based on screen size
+  useEffect(() => {
+    if (isMobile && (sideBar || pracBar || aboutBar || ourTeam)) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${window.scrollY}px`;
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.overflow = 'auto';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+    };
+  }, [isMobile, sideBar, pracBar, aboutBar, ourTeam]);
+
+  const handleMobileMenu = (action) => {
+    if (action === 'close') {
+      setSideBar(false);
+      setPracBar(false);
+      setAboutBar(false);
+      setourTeam(false);
+      setactPrac(false);
+      setActAbout(false);
+      setactTeam(false);
+    }
+  };
+
   const handleMouseEvents = (event, setStateFunction) => {
-    if (windowWidth > 768) { // Adjust this breakpoint based on your needs
+    if (!isMobile) {
       setStateFunction(event.type === 'mouseenter');
     }
   };
@@ -76,8 +111,7 @@ const Header = () => {
           /> : <FaMoon onClick={()=>setDarkMode(!darkMode)}/>}
         </button>
         <button data-testid="menu-button" onClick={()=>{setSideBar(!sideBar)
-          setactPrac(false);
-                setPracBar(false);
+          handleMobileMenu(sideBar ? 'close' : 'open');
         }}>
          { !sideBar ? <RxHamburgerMenu /> : <MdClose/> } 
         </button>
@@ -97,13 +131,15 @@ const Header = () => {
           onMouseEnter={(e) => handleMouseEvents(e, setPracBar)}
           onMouseLeave={(e) => handleMouseEvents(e, setPracBar)}
           >
-            <NavLink
+           <NavLink
             className={({ isActive }) =>
               isActive ? activeClass : inActiveClass
             }
             onClick={()=> {
-              setactPrac(true);
-              setPracBar(true);
+              if (isMobile) {
+                setactPrac(true);
+                setPracBar(true);
+              }
             }}
             to="/dui">Practice Areas</NavLink>
             <ul data-testid="practice-areas-menu" className={`${!pracBar  && 'hidden'} ${actPrac ? "other:translate-x-0 other:opacity-100" : "other:translate-x-full other:opacity-0" } 
@@ -120,11 +156,11 @@ const Header = () => {
               > 
                 <IoIosArrowBack className="mr-2" /> Back
               </button>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/dui">DUI & DWI</NavLink></li>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/criminal">Criminal Law</NavLink></li>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/expungments">Expungements</NavLink></li>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/personal">Personal Injury</NavLink></li>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/family">Family Law</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/dui">DUI & DWI</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/criminal">Criminal Law</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/expungments">Expungements</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/personal">Personal Injury</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/family">Family Law</NavLink></li>
             </ul>
           </li>
           <li 
@@ -136,8 +172,10 @@ const Header = () => {
               isActive ? activeClass : inActiveClass
             }
             onClick={() => {
-              setActAbout(true);
-              setAboutBar(true);
+              if (isMobile) {
+                setActAbout(true);
+                setAboutBar(true);
+              }
             }} 
             to="/about-us">About Us</NavLink>
             <ul data-testid="about-menu" className={`${!aboutBar && 'hidden'} ${actAbout ? "other:translate-x-0 other:opacity-100" : "other:translate-x-full other:opacity-0" }
@@ -154,7 +192,7 @@ const Header = () => {
               > 
                 <IoIosArrowBack className="mr-2" /> Back
               </button>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/#reviews">Reviews</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/#reviews">Reviews</NavLink></li>
             </ul>
           </li>
           <li
@@ -166,8 +204,10 @@ const Header = () => {
               isActive ? activeClass : inActiveClass
             }
             onClick={() => {
-              setactTeam(true);
-              setourTeam(true);
+              if (isMobile) {
+                setactTeam(true);
+                setourTeam(true);
+              }
             }} 
             to="/our-team">Our Team</NavLink>
             <ul data-testid="team-menu" className={`${!ourTeam  && 'hidden'} ${actTeam ? "other:translate-x-0 other:opacity-100" : "other:translate-x-full other:opacity-0" } absolute other:w-full other:space-y-3 other:justify-center other:bg-white other:h-full other:pb-[20rem] other:z-10 other:left-0 
@@ -182,28 +222,28 @@ const Header = () => {
               > 
                 <IoIosArrowBack className="mr-2" /> Back
               </button>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/e-seth-hendrick">E.Seth hendrick</NavLink></li>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/andrew-m-casey">Andrew M. Casey</NavLink></li>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/andrew-edward-hutter">Andrew Edward Hutter</NavLink></li>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/ryan-loewenstern">Ryan Loewenstern</NavLink></li>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/andrew-edward-hutter">Daniel Solloway</NavLink></li>
-              <li><NavLink onClick={()=>setSideBar(false)} className="hover:underline" to="/erika-diaz">Erika Diaz</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/e-seth-hendrick">E.Seth hendrick</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/andrew-m-casey">Andrew M. Casey</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/andrew-edward-hutter">Andrew Edward Hutter</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/ryan-loewenstern">Ryan Loewenstern</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/dan-solloway">Daniel Solloway</NavLink></li>
+              <li><NavLink onClick={()=>handleMobileMenu('close')} className="hover:underline" to="/erika-diaz">Erika Diaz</NavLink></li>
             </ul>
           </li>
           <li><NavLink
-          onClick={()=>setSideBar(false)}
+          onClick={()=>handleMobileMenu('close')}
           className={({ isActive }) =>
             isActive ? activeClass : inActiveClass
           }
           to="/#reviews">Reviews</NavLink></li>
           <li><NavLink
-          onClick={()=>setSideBar(false)}
+          onClick={()=>handleMobileMenu('close')}
           className={({ isActive }) =>
             isActive ? activeClass : inActiveClass
           }
           to="/contact">Contact Us</NavLink></li>
           <li><NavLink
-          onClick={()=>setSideBar(false)}
+          onClick={()=>handleMobileMenu('close')}
           className={({ isActive }) =>
             isActive ? activeClass : inActiveClass
           }

@@ -1,6 +1,7 @@
 import andCas from "./AndCase.jpg"
 import andHut from "./AndHut.jpg"
 import ryanLo from "./Brylo.jpg"
+import dans from "./daniel.jpg"
 import erica from './Erica.jpg'
 import sethen from "./sethend.jpg"
 
@@ -9,6 +10,7 @@ export const And = andCas
 export const AndH = andHut
 export const eric  = erica 
 export const seth = sethen
+export const dan = dans
 
 export const teamsLawyer = [
     {

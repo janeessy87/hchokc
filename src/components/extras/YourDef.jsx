@@ -22,19 +22,40 @@ export const YourDef = () => {
     <div
         className={`w-full bg-center bg-cover pl-[10%] lg:pl-[20%] pb-20 other:pl-0 p-6 bg-blend-multiply bg-neutral-300 bg-homee`}
       >
-        <div className={`${readMore ? 'fixed' : 'hidden'} top-0 left-0 w-full h-full bg-black/50 z-50`} >
-          <div className='flex fixed overflow-auto flex-col z-50  top-0 h-full dark:bg-neutral-900 bg-white left-0 w-[24rem] p-5'>
-            <MdCancel onClick={() => setReadMore(false)} className='relative  z-20 right-4 text-black dark:text-white text-2xl' />
+        <div 
+          className={`
+            fixed top-0 left-0 w-full h-full bg-black/50 z-50
+            transition-opacity duration-300 ease-in-out
+            ${readMore ? 'opacity-100 visible' : 'opacity-0 invisible'}
+          `}
+        >
+          <div 
+            className={`
+              fixed overflow-auto flex-col z-50 top-0 h-full 
+              dark:bg-neutral-900 bg-white left-0 w-[24rem] p-5
+              transition-transform duration-300 ease-in-out
+              ${readMore ? 'translate-x-0' : '-translate-x-full'}
+            `}
+          >
+            <MdCancel 
+              onClick={() => setReadMore(false)} 
+              className='relative z-20 right-4 text-black dark:text-white text-2xl cursor-pointer hover:opacity-70 transition-opacity' 
+            />
             
-           {reviews.map((review, index)=>(
-            <CardRev key={index} review={review}/>
-           ))}
-
+            {reviews.map((review, index) => (
+              <CardRev key={index} review={review}/>
+            ))}
           </div>
-         <div className='absolute top-0 left-0 w-full h-full bg-black/50 ' onClick={() => setReadMore(false)}>
-         <MdCancel onClick={() => setReadMore(false)} className='fixed top-4  left-[25rem] text-black dark:text-white text-2xl' />
-            
-         </div>
+          
+          <div 
+            className='absolute top-0 left-0 w-full h-full bg-black/50 transition-opacity duration-300 ease-in-out'
+            onClick={() => setReadMore(false)}
+          >
+            <MdCancel 
+              onClick={() => setReadMore(false)} 
+              className='fixed top-4 left-[25rem] text-black dark:text-white text-2xl cursor-pointer hover:opacity-70 transition-opacity' 
+            />
+          </div>
         </div>
         <div className="flex flex-col  w-[35rem]  other:items-center other:w-full">
           <div className="flex p-5">
@@ -50,7 +71,7 @@ export const YourDef = () => {
                 </div>
               </div>
               <span onClick={() => setReadMore(true)} className="px-3 text-xs underline">
-                Read our 179 reviews
+                Read our 183 reviews
               </span>
             </div>
           </div>

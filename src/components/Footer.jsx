@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex flex-col mt-16 items-center">
-        <p className="font-extralight text-sm dark:text-neutral-50 text-center w-1/4 text-neutral-500 space-x-2">Powered by <a href="https://www.highfivemedia.com/" target="blank" className="underline">High Five Media</a><span>|</span><a href="https://hchokc.org/privacy-policy" target="blank" className="underline">Privacy Policy</a></p>
+        <p className="font-extralight text-sm dark:text-neutral-50 text-center w-1/4 text-neutral-500 space-x-2">Powered by <a href="https://www.highfivemedia.com/" target="blank" className="underline">High Five Media</a><span>|</span><Link to="/privacy-policy"  className="underline">Privacy Policy</Link></p>
       <p className="pb-10 pt-3 px-24 text-sm font-light text-center">© {new Date().getFullYear()} he contents of this website are owned or licensed by High Five Media Group LLC. It is unlawful to copy this website or any of its content without High Five Media's consent.</p>
     </div>
     
