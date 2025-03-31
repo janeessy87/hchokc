@@ -115,17 +115,17 @@ export const EmailSender = () => {
     {/* Recepient Name */}
           <div className="flex items-center flex-col my-4 space-x-2">
             <label className="flex text-center font-bold  w-1/2 flex-col " htmlFor="client_name">
-              <input className="p-2 rounded-sm text-black bg-transparent border-black border-[1px] dark:border-white dark:text-white" type="text" id="client_name" name="client_name" value={formData.client_name} onChange={handleChange} required />
+              <input className="p-2 rounded-sm text-black bg-transparent border-black border-[1px] dark:border-white dark:text-white" type="text" id="client_name" name="client_name" value={formData.client_name} onChange={handleChange} />
               Reciepient Name
             </label>
     {/* recepient street address */}
             <label className="flex  w-1/3 flex-col " htmlFor="client_address">
-              <input className="p-2 rounded-sm text-black bg-transparent border-black border-[1px] dark:border-white dark:text-white" type="text" id="client_address" name="client_address" value={formData.client_address} onChange={handleChange} required />
+              <input className="p-2 rounded-sm text-black bg-transparent border-black border-[1px] dark:border-white dark:text-white" type="text" id="client_address" name="client_address" value={formData.client_address} onChange={handleChange} />
               Recepient street address
             </label>
     {/* receipient City and Zipcode */}
             <label className="flex w-1/3 flex-col" htmlFor="state_city_zip">
-              <input className="p-2 rounded-sm  text-black bg-transparent border-[1px] border-black dark:border-white dark:text-white" type="text" id="state_city_zip" name="state_city_zip" value={formData.state_city_zip} onChange={handleChange} required />
+              <input className="p-2 rounded-sm  text-black bg-transparent border-[1px] border-black dark:border-white dark:text-white" type="text" id="state_city_zip" name="state_city_zip" value={formData.state_city_zip} onChange={handleChange} />
               City, State and ZipCode 
             </label>
             
