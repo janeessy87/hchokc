@@ -14,8 +14,6 @@ module.exports = {
         "Expung": "url('/src/assets/Images/Expung.jpg')",
         "personal": "url('/src/assets/Images/Personal.jpg')",
         "ourTeam": "url('/src/assets/Images/ourTeam.jpg')",
-        
-
       },
       screens: {
         'other': { 'min': '150px', 'max': '767px' },
