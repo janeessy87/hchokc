@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../.Trash/.git"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.css": "postcss"
+		}
+	}
+}

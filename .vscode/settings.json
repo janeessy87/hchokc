@@ -1,1 +1,7 @@
-{\n  "files.associations": {\n    "*.css": "postcss"\n  }\n}
+{
+  "files.associations": {
+    "*.css": "postcss"
+},
+"terminal.integrated.defaultProfile.osx": "bash",
+"terminal.integrated.focusAfterRun": "terminal"
+}

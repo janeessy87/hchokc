@@ -12,6 +12,7 @@
     "not firefox <= 134"
   ],
   "hints": {
-    "no-inline-styles": "off"
+    "no-inline-styles": "off",
+    "compat-api/html": "off"
   }
 }

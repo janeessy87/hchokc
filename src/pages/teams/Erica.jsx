@@ -20,8 +20,8 @@ export const Erica = () => {
   useTitle(title)
   const ans1 = (
     <div className='flex flex-col p-0 space-y-3'>
-      {/* <div className='flex'><b className='mr-2'>Phone:</b><p className='font-extralight'>405-232-1515</p></div> */}
-      <div className='flex'><b className='mr-2'>Email:</b><p className='font-extralight'>eric.D@hchoklahoma.com
+      <div className='flex'><b className='mr-2'>Phone:</b><p className='font-extralight'>405-825-0490</p></div>
+      <div className='flex'><b className='mr-2'>Email:</b><p className='font-extralight'>diaz@hchoklahoma.com
 
 </p></div>
     </div>

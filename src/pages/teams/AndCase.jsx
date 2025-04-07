@@ -19,15 +19,15 @@ export const AndCase = () => {
       Below are two oral arguments that were completed by Andrew Casey. In Burke v. Holdman, Andy convinced the appellate panel to reverse a district court's dismissal of his client's claim against a doctor for medical malpractice. In Reavis v. Frost, the appellate court published an opinion in Andy's client's favor that ultimately led to a favorable settlement for our client.
       In addition to trial practice, Andy began his career as a distinguished appeal attorney who prevailed in appeals at the Supreme Court of Oklahoma, the Oklahoma Court of Civil Appeals, 
       the Oklahoma Court of Criminal Appeals, and the Tenth Circuit Federal Court of Appeals in Denver, CO. <br /> <br />
-    <div className=' w-full flex space-x-5 pt-5'>
+    <div className='flex pt-5 space-x-5 w-full'>
       <a 
        target='blank'
-      className='px-10 py-4 font-normal dark:bg-white dark:text-black text-white rounded bg-black'
+      className='px-10 py-4 font-normal text-white bg-black rounded dark:bg-white dark:text-black'
       href="https://soundcloud.com/user-191889704/reavis-v-frost?utm_source=clipboard&utm_campaign=wtshare&utm_medium=widget&utm_content=https%253A%252F%252Fsoundcloud.com%252Fuser-191889704%252Freavis-v-frost">
         Reavis v. Frost
       </a>
       <a
-       className='px-10 py-4  dark:bg-white dark:text-black font-normal text-white rounded bg-black'
+       className='px-10 py-4 font-normal text-white bg-black rounded dark:bg-white dark:text-black'
         target='blank'
        href="https://soundcloud.com/user-191889704/burke-v-holdman?utm_source=clipboard&utm_campaign=wtshare&utm_medium=widget&utm_content=https%253A%252F%252Fsoundcloud.com%252Fuser-191889704%252Fburke-v-holdman"
       >Burke v. Holdman</a>
@@ -49,13 +49,13 @@ export const AndCase = () => {
   useTitle(title)
   const ans1 = (
     <div className='flex flex-col p-0 space-y-3'>
-      {/* <div className='flex'><b className='mr-2'>Phone:</b><p className='font-extralight'>405-232-1515</p></div> */}
-      <div className='flex'><b className='mr-2'>Email:</b><p className='font-extralight'>andrew.C@hchoklahoma.com</p></div>
+      <div className='flex'><b className='mr-2'>Phone:</b><p className='font-extralight'>405-825-0490</p></div>
+      <div className='flex'><b className='mr-2'>Email:</b><p className='font-extralight'>casey@hchoklahoma.com</p></div>
     </div>
   )
   const ans2 = (
     <div className='flex flex-col p-0 space-y-3'>
-      <ul className='flex space-y-3 flex-col'>
+      <ul className='flex flex-col space-y-3'>
         <li className='font-extralight'>Federal Criminal Defense</li>
         <li className='font-extralight'>State Criminal Defense</li>
         <li className='font-extralight'>Appeals</li>
@@ -67,7 +67,7 @@ export const AndCase = () => {
   )
   const ans3 = (
     <div className='flex flex-col p-0 space-y-3'>
-      <ul className='flex space-y-3 flex-col'>
+      <ul className='flex flex-col space-y-3'>
         <li className='font-extralight'>U.S. District Court Eastern District of Oklahoma</li>
         <li className='font-extralight'>U.S. District Court Northern District of Oklahoma</li>
         <li className='font-extralight'>U.S. District Court Western District of Oklahoma</li>
@@ -83,7 +83,7 @@ export const AndCase = () => {
   const ans4 = (
     <div className='flex flex-col p-0 space-y-3'>
       
-      <ul className='flex space-y-3 flex-col'>
+      <ul className='flex flex-col space-y-3'>
         <li className='font-extralight'>University of Oklahoma College of Law, Norman, Oklahoma</li>
         <li className='font-extralight'>University of Central Oklahoma, B.A. Bachelor of Arts, Major: Political Science</li>
         <li className='font-extralightflex'><b className='mr-2'>Honors:</b>  National NALSA Moot Court Team, 2014 and 2015</li>
@@ -96,7 +96,7 @@ export const AndCase = () => {
   )
   const ans5 = (
     <div className='flex flex-col p-0 space-y-3'>
-      <ul className='flex space-y-3 flex-col'>
+      <ul className='flex flex-col space-y-3'>
         <li className='font-extralight'>Oklahoma Bar Association, Member</li>
         <li className='font-extralight'> Oklahoma Bar Association Mock Trial Committee, Committee Member</li>
         <li className='font-extralight'> Oklahoma Bar Association, Leadership Class of 2018</li>
@@ -107,7 +107,7 @@ export const AndCase = () => {
   )
   const ans6 = (
     <div className='flex flex-col p-0 space-y-3'>
-      <ul className='flex space-y-3 flex-col'>
+      <ul className='flex flex-col space-y-3'>
         <li className='font-extralight'>United States Department of Justice in Washington, D.C., Intern </li>
         <li className='font-extralight'>Honorable Judge Daman Cantrell in Tulsa County, OK, Intern </li>
         <li className='font-extralight'> Tulsa County District Attorney's Office, Intern</li>
